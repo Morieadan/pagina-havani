@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Havani - Desarrollo sin tanto rollo</title>
+    <!-- Importar fuente Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header con efecto glassmorphing -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <!-- Reemplaza con el logo de Havani (preferiblemente SVG blanco) -->
+                <img src="assets/logo-placeholder.svg" alt="Logo Havani"> <!-- Placeholder -->
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#casos-exito">Casos de Éxito</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Hero -->
+    <section id="hero">
+        <!-- No necesita .container si queremos que el fondo ocupe todo -->
+        <div class="container reveal"> <!-- Añadir reveal -->
+            <h1>Desarrollo sin tanto rollo</h1>
+            <p class="subtitulo">Hacemos que la tecnología sea fácil, rápida y a tu medida.</p>
+            <p>¿Cansado de soluciones complicadas y llenas de pasos innecesarios? En Havani combinamos experiencia y frescura para que tu proyecto fluya sin trabas.</p>
+            <a href="#contacto" class="btn-neon">Hablemos</a>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Nosotros -->
+    <section id="sobre-nosotros">
+        <div class="container reveal"> <!-- Añadir reveal -->
+            <h2>¿Por qué Havani?</h2>
+            <p>En un mundo repleto de procesos engorrosos, Havani nació para simplificar. Somos un equipo joven, apasionado por el desarrollo de software, que decidió hacer algo diferente: escuchar, crear y optimizar con transparencia y eficiencia.</p>
+            <p>Trabajamos con metodologías ágiles, transparentes y claras, involucrando activamente al cliente en cada paso del proceso.</p>
+        </div>
+    </section>
+
+    <!-- Sección Servicios -->
+    <section id="servicios">
+        <div class="container reveal"> <!-- Añadir reveal -->
+            <h2>Nuestros Servicios</h2>
+            <p>Creamos soluciones tecnológicas personalizadas y orientadas a resultados concretos:</p>
+            <ul>
+                <!-- Añadir reveal a cada item para animación escalonada (opcional, requiere JS adicional) -->
+                <li>Desarrollo de Software a Medida: Aplicaciones web y de escritorio escalables adaptadas a tu negocio.</li>
+                <li>Aplicaciones Móviles: Apps intuitivas (Android/iOS) que fortalecen tu conexión con los usuarios.</li>
+                <li>Consultoría y Optimización: Identificamos y solucionamos cuellos de botella con mejoras tecnológicas.</li>
+                <li>Integraciones (APIs, ERPs, CRMs): Automatizamos la comunicación entre tus plataformas, simplificando procesos operativos.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Sección Proceso de Trabajo -->
+    <section id="proceso-trabajo">
+        <div class="container reveal"> <!-- Añadir reveal -->
+            <h2>Nuestro Proceso Sin Tanto Rollo</h2>
+            <p>Proceso sencillo, transparente y ágil:</p>
+            <!-- Podríamos usar una lista ordenada o mejorar visualmente -->
+            <ul>
+                <li>Reunión Inicial: Identificamos tus objetivos y retos.</li>
+                <li>Propuesta y Prototipo: Creamos wireframes claros.</li>
+                <li>Desarrollo Iterativo: Incorporamos tu feedback de manera constante.</li>
+                <li>Pruebas y Ajustes: Aseguramos calidad antes del lanzamiento.</li>
+                <li>Lanzamiento y Soporte: Acompañamiento continuo tras la entrega.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Sección Casos de Éxito -->
+    <section id="casos-exito">
+        <div class="container reveal"> <!-- Añadir reveal -->
+            <h2>Casos de Éxito</h2>
+            <div class="caso-exito"> <!-- Podría tener reveal individual -->
+                <h3>Asistencia Vial Troya</h3>
+                <p>Problema: Cálculos erróneos y operación saturada por falta de sistemas centralizados.</p>
+                <p>Solución: Desarrollo de ERP con automatización y geolocalización inteligente.</p>
+                <p>Resultados: Incremento en rentabilidad, reducción de errores y eficiencia operativa.</p>
+                <p class="testimonio">"Gracias a Havani, optimizamos recursos y minimizamos errores. ¡El cambio ha sido increíble!" — Carlos L., Gerente Operativo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Testimonios -->
+    <section id="testimonios">
+        <div class="container reveal"> <!-- Añadir reveal -->
+            <h2>Lo que Dicen Nuestros Clientes</h2>
+            <!-- Usar data-author como se definió en CSS -->
+            <div class="testimonio">
+                <p data-author="— Andrea M., CEO Startup Retail">"El proyecto se lanzó en tiempo récord y con detalle increíble."</p>
+            </div>
+            <div class="testimonio">
+                <p data-author="— Jorge C., Director en TechPlus">"Havani parecía parte de nuestro equipo interno, 100% recomendados."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección FAQ -->
+    <section id="faq">
+        <div class="container reveal"> <!-- Añadir reveal -->
+            <h2>Preguntas Frecuentes</h2>
+            <div class="pregunta"> <!-- Podría tener reveal individual -->
+                <h3>¿Cuánto tiempo toma un proyecto?</h3>
+                <p>Varía según proyecto; versiones iniciales en semanas.</p>
+            </div>
+            <div class="pregunta">
+                <h3>¿Cuál es el costo de un proyecto?</h3>
+                <p>Planes flexibles adaptados a tus necesidades.</p>
+            </div>
+            <div class="pregunta">
+                <h3>¿Qué tecnologías utilizan?</h3>
+                <p>React, Node.js, Python, entre otras.</p>
+            </div>
+            <div class="pregunta">
+                <h3>¿Cómo protegen mi información?</h3>
+                <p>Firmamos NDAs para proteger tu información.</p>
+            </div>
+            <div class="pregunta">
+                <h3>¿Ofrecen soporte post-lanzamiento?</h3>
+                <p>Disponibles planes de mantenimiento continuo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección CTA / Contacto -->
+    <section id="contacto">
+        <div class="container reveal"> <!-- Añadir reveal -->
+            <h2>¿Listo para Simplificar tu Próximo Proyecto?</h2>
+            <p class="llamativo">Haz clic aquí y empecemos tu camino tecnológico sin complicaciones.</p>
+            <form action="#" method="POST">
+                <input type="text" name="nombre" placeholder="Nombre" required> <!-- Añadir required -->
+                <input type="email" name="email" placeholder="Email" required> <!-- Añadir required -->
+                <textarea name="mensaje" placeholder="Mensaje breve" required></textarea> <!-- Añadir required -->
+                <button type="submit" class="btn-neon">Enviar</button>
+            </form>
+            <div class="contacto-info">
+                <p>Contacto Directo:</p>
+                <p>Correo: <a href="mailto:info@havani.com">info@havani.com</a></p>
+                <p>Teléfono: +XX XXXX XXXX</p> <!-- Actualizar teléfono -->
+                <div class="redes-sociales">
+                    <!-- Reemplazar # con enlaces reales y usar iconos si es posible -->
+                    <a href="#" target="_blank">LinkedIn</a>
+                    <a href="#" target="_blank">Facebook</a>
+                    <a href="#" target="_blank">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container"> <!-- No necesita reveal -->
+            <p>© 2025 Havani. Todos los derechos reservados.</p>
+            <p><a href="#">Política de Privacidad</a> | <a href="#">Términos y Condiciones</a></p>
+            <div class="redes-sociales">
+                 <!-- Reemplazar # con enlaces reales y usar iconos si es posible -->
+                <a href="#" target="_blank">LinkedIn</a>
+                <a href="#" target="_blank">Facebook</a>
+                <a href="#" target="_blank">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

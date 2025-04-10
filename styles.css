@@ -1,0 +1,451 @@
+/* styles.css - Rediseño inspirado en Pulsar */
+
+/* Variables de color inspiradas en Pulsar */
+:root {
+    --color-fondo: #0a0a0a; /* Negro muy oscuro */
+    --color-primario: #a855f7; /* Púrpura vibrante */
+    --color-secundario: #ec4899; /* Rosa vibrante */
+    --color-terciario: #3b82f6; /* Azul vibrante */
+    --color-texto: #e5e7eb; /* Gris muy claro (casi blanco) */
+    --color-texto-secundario: #9ca3af; /* Gris medio */
+    --color-borde: rgba(255, 255, 255, 0.1); /* Borde sutil */
+    --gradiente-fondo: linear-gradient(180deg, rgba(168, 85, 247, 0.1) 0%, rgba(10, 10, 10, 0) 50%); /* Gradiente sutil superior */
+    --gradiente-pulsar: linear-gradient(90deg, var(--color-primario), var(--color-secundario), var(--color-terciario));
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Inter', sans-serif; /* Fuente similar a Pulsar (requiere importación o fuente local) */
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    margin: 0;
+    padding: 0;
+    line-height: 1.7; /* Mayor interlineado */
+    overflow-x: hidden; /* Prevenir scroll horizontal */
+    /* Fondo animado básico */
+    background: linear-gradient(-45deg, #1a0b2e, #0a0a0a, #1a0b2e, #0a0a0a);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+/* Animación de fondo */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+.container {
+    width: 90%; /* Más ancho */
+    max-width: 1100px; /* Límite máximo */
+    margin: 0 auto;
+    padding: 40px 20px; /* Mayor padding vertical */
+}
+
+h1, h2, h3 {
+    color: var(--color-texto); /* Texto principal blanco */
+    margin-bottom: 1.5rem; /* Mayor margen inferior */
+    font-weight: 600; /* Un poco más grueso */
+}
+
+h1 {
+    font-size: 3.5rem; /* Más grande */
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--color-primario); /* Títulos secundarios con color primario */
+}
+
+p {
+    margin-bottom: 1.5rem;
+    color: var(--color-texto-secundario); /* Texto secundario más gris */
+    max-width: 650px; /* Limitar ancho de párrafos */
+}
+
+a {
+    color: var(--color-primario); /* Enlaces con color primario */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-secundario); /* Cambio a color secundario en hover */
+}
+
+/* Header */
+header {
+    background: rgba(10, 10, 10, 0.7); /* Fondo oscuro semi-transparente */
+    backdrop-filter: blur(15px); /* Glassmorphism más pronunciado */
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--color-borde); /* Borde inferior sutil */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; /* Ajuste padding */
+}
+
+header .logo img {
+    height: 35px; /* Ajusta el tamaño del logo */
+    filter: brightness(0) invert(1); /* Hacer logo blanco si es oscuro */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav li {
+    margin-left: 30px; /* Mayor separación */
+}
+
+nav a {
+    color: var(--color-texto-secundario); /* Color más tenue */
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--color-texto); /* Blanco en hover */
+}
+
+/* Botones (Estilo Pulsar) */
+.btn-neon { /* Reutilizamos la clase pero cambiamos el estilo */
+    display: inline-block;
+    padding: 12px 28px; /* Más padding */
+    border: 1px solid var(--color-borde); /* Borde sutil */
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01)); /* Gradiente sutil */
+    color: var(--color-texto);
+    text-decoration: none;
+    text-transform: none; /* Sin mayúsculas */
+    letter-spacing: 0; /* Sin espaciado extra */
+    border-radius: 8px; /* Bordes redondeados */
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+
+.btn-neon:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    transform: translateY(-2px); /* Efecto levantar */
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.2); /* Sombra con color primario */
+}
+
+/* Eliminamos el ::before del estilo neón anterior */
+.btn-neon::before {
+   display: none;
+}
+
+
+/* Secciones */
+section {
+    padding: 6rem 0; /* Mayor padding vertical */
+    position: relative; /* Para posibles pseudo-elementos de fondo */
+    overflow: hidden; /* Para contener efectos */
+}
+
+/* Añadir gradiente superior a secciones */
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 300px; /* Altura del gradiente */
+    background: var(--gradiente-fondo);
+    z-index: -1; /* Detrás del contenido */
+    pointer-events: none; /* No interferir con clics */
+}
+
+
+/* Hero */
+#hero {
+    /* Eliminamos la imagen de fondo anterior */
+    color: var(--color-texto);
+    text-align: center;
+    padding: 10rem 0 8rem 0; /* Mayor padding superior */
+    min-height: 70vh; /* Altura mínima */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero h1 {
+    font-size: 4.5rem; /* Título aún más grande */
+    margin-bottom: 1.5rem;
+    background: linear-gradient(90deg, var(--color-texto), #b0b0b0); /* Gradiente sutil en texto */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#hero .subtitulo {
+    font-size: 1.3rem; /* Ajuste tamaño */
+    color: var(--color-texto-secundario);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+}
+
+#hero p:not(.subtitulo) {
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Sobre Nosotros */
+#sobre-nosotros {
+   /* Eliminamos el background-color anterior */
+   text-align: center; /* Centrar texto */
+}
+#sobre-nosotros h2 {
+    margin-bottom: 2rem;
+}
+#sobre-nosotros p {
+     margin-left: auto;
+     margin-right: auto;
+}
+
+
+/* Servicios */
+#servicios ul {
+    list-style: none;
+    padding: 0;
+    display: grid; /* Usar grid para layout */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas responsivas */
+    gap: 30px; /* Espacio entre items */
+}
+
+#servicios li {
+    margin-bottom: 0; /* Quitar margen inferior */
+    background: rgba(255, 255, 255, 0.03); /* Fondo sutil para cada servicio */
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid var(--color-borde);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#servicios li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Casos de Éxito */
+#casos-exito .caso-exito {
+    background-color: rgba(255, 255, 255, 0.03); /* Fondo sutil */
+    padding: 30px; /* Más padding */
+    margin-bottom: 30px;
+    border-radius: 10px;
+    border: 1px solid var(--color-borde);
+}
+
+#casos-exito .testimonio {
+    font-style: normal; /* Quitar itálica */
+    margin-top: 1.5rem;
+    color: var(--color-texto-secundario);
+    border-left: 3px solid var(--color-primario); /* Línea lateral */
+    padding-left: 15px;
+}
+
+/* Testimonios */
+#testimonios {
+    text-align: center;
+}
+#testimonios .testimonio {
+    background-color: transparent; /* Sin fondo individual */
+    padding: 0;
+    margin-bottom: 25px;
+    border-radius: 0;
+    border: none; /* Sin borde */
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#testimonios .testimonio p {
+     color: var(--color-texto); /* Texto principal */
+     font-style: italic;
+}
+#testimonios .testimonio p::after { /* Añadir autor */
+    content: attr(data-author); /* Usar un atributo data-* para el autor */
+    display: block;
+    font-style: normal;
+    font-weight: 500;
+    color: var(--color-texto-secundario);
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+
+/* FAQ */
+#faq .pregunta {
+    background-color: transparent; /* Sin fondo */
+    padding: 20px 0; /* Padding vertical */
+    margin-bottom: 15px;
+    border-radius: 0;
+    border-bottom: 1px solid var(--color-borde); /* Separador inferior */
+}
+#faq .pregunta:last-child {
+    border-bottom: none; /* Quitar borde al último */
+}
+
+#faq h3 {
+    margin-bottom: 0.8rem;
+    color: var(--color-texto); /* Título en blanco */
+    font-size: 1.2rem;
+}
+
+
+/* Contacto */
+#contacto {
+    text-align: center;
+}
+#contacto form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 3rem auto 0 auto; /* Margen superior */
+}
+
+#contacto input,
+#contacto textarea {
+    margin-bottom: 1.5rem; /* Mayor margen */
+    padding: 15px; /* Más padding */
+    border: 1px solid var(--color-borde);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--color-texto);
+    border-radius: 8px; /* Bordes redondeados */
+    font-size: 1rem;
+}
+#contacto input::placeholder,
+#contacto textarea::placeholder {
+    color: var(--color-texto-secundario);
+}
+
+#contacto textarea {
+    resize: vertical;
+    min-height: 120px; /* Altura mínima */
+}
+
+#contacto .contacto-info {
+    margin-top: 4rem; /* Mayor separación */
+    text-align: center;
+    color: var(--color-texto-secundario);
+}
+#contacto .contacto-info p {
+    margin-bottom: 0.5rem;
+}
+
+#contacto .redes-sociales a {
+    margin: 0 15px; /* Mayor separación */
+    color: var(--color-texto-secundario);
+    font-size: 1.2rem; /* Iconos más grandes (si usas iconos) */
+}
+#contacto .redes-sociales a:hover {
+    color: var(--color-texto);
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 3rem 0; /* Mayor padding */
+    background-color: transparent; /* Sin fondo explícito */
+    border-top: 1px solid var(--color-borde); /* Borde superior */
+    color: var(--color-texto-secundario);
+    font-size: 0.9rem;
+}
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+footer .redes-sociales a {
+    margin: 0 10px;
+    color: var(--color-texto-secundario);
+}
+footer .redes-sociales a:hover {
+    color: var(--color-texto);
+}
+
+
+/* Animaciones (Refinamiento) */
+/* Usaremos una clase 'reveal' para animar elementos al hacer scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Eliminamos la animación fadeIn anterior */
+/*
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1, p, .btn-neon {
+    animation: fadeIn 1s ease;
+}
+*/
+
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* Casi pantalla completa */
+        padding: 20px 15px;
+    }
+
+    h1 { font-size: 2.8rem; }
+    h2 { font-size: 2rem; }
+    #hero h1 { font-size: 3.2rem; }
+
+
+    header .container {
+        flex-direction: row; /* Mantener en fila */
+        padding: 10px 15px;
+    }
+    /* Ocultar nav links y mostrar un botón de menú (requiere JS) */
+    nav ul {
+       display: none; /* Ocultar menú en móvil (simplificado) */
+       /* Aquí iría la lógica para un menú hamburguesa */
+    }
+    nav li { margin-left: 0; } /* Resetear margen */
+
+
+    #servicios ul {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+
+    #contacto form {
+        max-width: 100%;
+    }
+}
