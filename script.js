@@ -41,12 +41,12 @@ const addSpotlightEffect = () => {
     const spotlight = document.createElement('div');
     spotlight.style.position = 'fixed';
     spotlight.style.width = '400px'; // Tamaño del brillo
-    spotlight.style.height = '400px';
+    spotlight.style.height = '400px'; // Podríamos ajustar tamaño si se desea
     spotlight.style.borderRadius = '50%';
-    // Gradiente radial para el brillo, usando colores primario/secundario
-    spotlight.style.background = `radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, rgba(168, 85, 247, 0) 60%)`;
+    // Gradiente radial para el brillo, AUMENTANDO la opacidad (de 0.15 a 0.25)
+    spotlight.style.background = `radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, rgba(168, 85, 247, 0) 60%)`;
     spotlight.style.pointerEvents = 'none'; // No interferir con clics
-    spotlight.style.zIndex = '-1'; // Detrás del contenido pero sobre el fondo base
+    spotlight.style.zIndex = '-1'; // Detrás del contenido pero sobre el fondo base y el ruido
     spotlight.style.transform = 'translate(-50%, -50%)'; // Centrar en el cursor
     spotlight.style.transition = 'opacity 0.2s ease-out'; // Transición suave
     spotlight.style.opacity = '0'; // Oculto inicialmente

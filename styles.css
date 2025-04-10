@@ -11,10 +11,13 @@
     --color-borde: rgba(255, 255, 255, 0.1); /* Borde sutil */
     --gradiente-fondo: linear-gradient(180deg, rgba(168, 85, 247, 0.1) 0%, rgba(10, 10, 10, 0) 50%); /* Gradiente sutil superior */
     --gradiente-pulsar: linear-gradient(90deg, var(--color-primario), var(--color-secundario), var(--color-terciario));
+    /* Añadir versión RGB del color primario para usar en RGBA */
+    --color-primario-rgb: 168, 85, 247;
 }
 
 /* Estilos generales */
 body {
+    position: relative; /* Necesario para el posicionamiento absoluto del pseudo-elemento */
     font-family: 'Inter', sans-serif; /* Fuente similar a Pulsar (requiere importación o fuente local) */
     background-color: var(--color-fondo);
     color: var(--color-texto);
@@ -22,17 +25,37 @@ body {
     padding: 0;
     line-height: 1.7; /* Mayor interlineado */
     overflow-x: hidden; /* Prevenir scroll horizontal */
-    /* Fondo animado básico */
-    background: linear-gradient(-45deg, #1a0b2e, #0a0a0a, #1a0b2e, #0a0a0a);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+    /* Fondo animado refinado con radial-gradient */
+    background: radial-gradient(circle at 10% 10%, #1a0b2e 0%, var(--color-fondo) 30%),
+                radial-gradient(circle at 90% 80%, #111827 0%, var(--color-fondo) 40%),
+                radial-gradient(circle at 50% 50%, #1f1035 0%, var(--color-fondo) 35%); /* Múltiples gradientes radiales suaves */
+    background-size: 300% 300%; /* Ajustar tamaño si es necesario */
+    animation: gradientBG 30s ease infinite; /* Animación más lenta */
 }
 
-/* Animación de fondo */
+/* Pseudo-elemento para la capa de ruido */
+body::before {
+    content: '';
+    position: fixed; /* Fijo para cubrir toda la pantalla independientemente del scroll */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* SVG de ruido como data URI */
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='100'%20height='100'%3E%3Cfilter%20id='noiseFilter'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.8'%20numOctaves='3'%20stitchTiles='stitch'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.04; /* Opacidad muy baja para sutileza */
+    z-index: -2; /* Detrás del spotlight y del contenido */
+    pointer-events: none;
+}
+
+
+/* Animación de fondo (movimiento sutil de posición) */
 @keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% { background-position: 0% 0%; }
+    25% { background-position: 25% 50%; }
+    50% { background-position: 50% 100%; }
+    75% { background-position: 75% 50%; }
+    100% { background-position: 100% 0%; }
 }
 
 
@@ -56,6 +79,12 @@ h1 {
 
 h2 {
     font-size: 2.5rem;
+    /* Aplicar gradiente vertical sutil a H2 también */
+    background: linear-gradient(180deg, var(--color-texto) 70%, var(--color-texto-secundario) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 h3 {
@@ -137,15 +166,17 @@ nav a:hover {
     font-weight: 500;
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease;
+    /* Ajustar transición para incluir transform y box-shadow (para el glow posterior) */
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil */
 }
 
 .btn-neon:hover {
-    border-color: rgba(255, 255, 255, 0.2);
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-    transform: translateY(-2px); /* Efecto levantar */
-    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.2); /* Sombra con color primario */
+    border-color: rgba(255, 255, 255, 0.2); /* Borde más visible */
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)); /* Fondo ligeramente más claro */
+    transform: scale(1.03); /* Efecto escalar ligeramente */
+    /* Añadir efecto glow con box-shadow usando el color primario */
+    box-shadow: 0 0 15px 4px rgba(var(--color-primario-rgb), 0.3); /* Glow suave */
 }
 
 /* Eliminamos el ::before del estilo neón anterior */
@@ -191,9 +222,12 @@ section::before {
 #hero h1 {
     font-size: 4.5rem; /* Título aún más grande */
     margin-bottom: 1.5rem;
-    background: linear-gradient(90deg, var(--color-texto), #b0b0b0); /* Gradiente sutil en texto */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    /* Aplicar gradiente vertical sutil */
+    background: linear-gradient(180deg, var(--color-texto) 70%, var(--color-texto-secundario) 100%);
+    -webkit-background-clip: text; /* Para navegadores WebKit (Chrome, Safari) */
+    background-clip: text;
+    -webkit-text-fill-color: transparent; /* Para navegadores WebKit */
+    color: transparent; /* Ocultar color de texto original */
 }
 
 #hero .subtitulo {
@@ -389,8 +423,8 @@ footer .redes-sociales a:hover {
 /* Usaremos una clase 'reveal' para animar elementos al hacer scroll */
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transform: translateY(20px); /* Reducir distancia de deslizamiento */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Hacer transición un poco más rápida y suave */
 }
 
 .reveal.active {
