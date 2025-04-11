@@ -1,0 +1,8 @@
+# macOS system files
+.DS_Store
+
+# Node.js
+node_modules/
+
+# Add other files/folders to ignore if needed
+# e.g., .env

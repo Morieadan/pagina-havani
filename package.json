@@ -1,0 +1,24 @@
+{
+  "name": "pagina-havani",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "start": "http-server -p 8081",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Morieadan/pagina-havani.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Morieadan/pagina-havani/issues"
+  },
+  "homepage": "https://github.com/Morieadan/pagina-havani#readme",
+  "description": "",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
